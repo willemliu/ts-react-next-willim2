@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
 
+declare var window: any;
+
 export interface Props {
     className?: string;
     spin?: boolean;
@@ -25,6 +27,7 @@ export default class Logo extends PureComponent<Props, any> {
     }
 
     handleClick = () => {
+        window.appInsights.trackEvent('Spin logo', {src: this.props.src});
         this.setState({
             spin: true
         });
@@ -34,7 +37,7 @@ export default class Logo extends PureComponent<Props, any> {
         return (
             <React.Fragment>
                 <img className={`${this.props.className ? this.props.className : ''} ${this.state.spin ? 'spin' : ''}`} src={this.props.src} onClick={this.handleClick} onAnimationEnd={this.handleAnimationEnd}/>
-                <style jsx>{`
+                <style jsx={true}>{`
                     img {
                         display: block;
                         max-width: 100%;
