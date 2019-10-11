@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useState } from 'react';
 
 declare var window: any;
 
@@ -8,53 +8,45 @@ export interface Props {
     src: string;
 }
 
-export default class Logo extends PureComponent<Props, any> {
-    state: any = {
-        spin: true
-    };
+export function Logo(props: Props) {
+    const [spin, setSpin] = useState(props.spin ? props.spin : false);
 
-    constructor (props: Props) {
-        super(props);
-        this.state = {
-            spin: props.spin ? props.spin : false
-        };
+    function handleAnimationEnd() {
+        setSpin(false);
     }
 
-    handleAnimationEnd = () => {
-        this.setState({
-            spin: false
-        });
+    function handleClick() {
+        window.appInsights.trackEvent('Spin logo', { src: props.src });
+        setSpin(true);
     }
 
-    handleClick = () => {
-        window.appInsights.trackEvent('Spin logo', {src: this.props.src});
-        this.setState({
-            spin: true
-        });
-    }
+    return (
+        <>
+            <img
+                className={`${props.className ? props.className : ''} ${
+                    spin ? 'spin' : ''
+                }`}
+                src={props.src}
+                onClick={handleClick}
+                onAnimationEnd={handleAnimationEnd}
+            />
+            <style jsx={true}>{`
+                img {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                }
 
-    render() {
-        return (
-            <React.Fragment>
-                <img className={`${this.props.className ? this.props.className : ''} ${this.state.spin ? 'spin' : ''}`} src={this.props.src} onClick={this.handleClick} onAnimationEnd={this.handleAnimationEnd}/>
-                <style jsx={true}>{`
-                    img {
-                        display: block;
-                        max-width: 100%;
-                        height: auto;
+                .spin {
+                    animation: spin 0.3s linear forwards;
+                }
+
+                @keyframes spin {
+                    100% {
+                        transform: rotate(180deg);
                     }
-
-                    .spin {
-                        animation: spin .3s linear forwards;
-                    }
-
-                    @keyframes spin {
-                        100% {
-                            transform: rotate(180deg);
-                        }
-                    }
-                `}</style>
-            </React.Fragment>
-        );
-    }
+                }
+            `}</style>
+        </>
+    );
 }

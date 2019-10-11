@@ -1,36 +1,46 @@
 {
-  "name": "willim",
-  "version": "1.0.0",
-  "description": "WilliM Homepage",
-  "engines": {
-    "node": "10.14.1",
-    "npm": "6.4.1"
-  },
-  "main": "server.js",
-  "scripts": {
-    "build": "next build",
-    "dev": "next",
-    "export": "npm run build && next export",
-    "postinstall": "next build",
-    "start": "cross-env NODE_ENV=production node server.js",
-    "start-prod": "npm run build && cross-env NODE_ENV=production node server.js",
-    "test": "echo \"Error: no test specified\" && exit 0"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@types/express": "^4.16.1",
-    "@types/next": "^8.0.5",
-    "@types/react": "^16.8.15",
-    "@types/react-dom": "^16.8.4",
-    "@types/styled-jsx": "^2.2.8",
-    "@zeit/next-typescript": "^1.1.1",
-    "compression": "^1.7.4",
-    "cross-env": "^5.2.0",
-    "express": "^4.16.4",
-    "next": "^8.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  }
+    "name": "willim",
+    "version": "1.0.0",
+    "description": "WilliM Homepage",
+    "engines": {
+        "node": "10.14.1",
+        "npm": "6.4.1"
+    },
+    "main": "server.js",
+    "scripts": {
+        "build": "next build",
+        "dev": "next",
+        "export": "npm run build && next export",
+        "lint": "eslint pages/**/* components/**/*",
+        "prettier": "prettier -c **/*.tsx",
+        "postinstall": "next build",
+        "start": "cross-env NODE_ENV=production node server.js",
+        "start-prod": "npm run build && cross-env NODE_ENV=production node server.js",
+        "test": "echo \"Error: no test specified\" && exit 0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/plugin-proposal-decorators": "^7.6.0",
+        "@types/express": "^4.17.1",
+        "@types/node": "^12.7.12",
+        "@types/react": "^16.9.5",
+        "@types/react-dom": "^16.9.1",
+        "@types/styled-jsx": "^2.2.8",
+        "compression": "^1.7.4",
+        "cross-env": "^5.2.1",
+        "eslint": "^6.5.1",
+        "eslint-config-prettier": "^6.4.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "eslint-plugin-react": "^7.16.0",
+        "express": "^4.17.1",
+        "next": "^9.1.1",
+        "preact": "^10.0.0",
+        "preact-render-to-string": "^5.0.6",
+        "prettier": "^1.18.2",
+        "react": "^16.10.2",
+        "react-dom": "^16.10.2",
+        "typescript": "^3.6.4"
+    }
 }
