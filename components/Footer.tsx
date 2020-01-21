@@ -16,7 +16,14 @@ export function Footer() {
             >
                 Contact
             </a>
-            &nbsp;| &copy; 2013 - {currentYear} |&nbsp;
+            &nbsp;|&nbsp;
+            <a
+                href="https://raw.githubusercontent.com/willemliu/ts-react-next-willim2/master/privacy.txt"
+                onClick={handleContact}
+            >
+                Privacy
+            </a>
+            &nbsp;|&nbsp;&copy; 2013 - {currentYear} |&nbsp;
             <a target="_blank" href="https://github.com/willemliu">
                 Github
             </a>
