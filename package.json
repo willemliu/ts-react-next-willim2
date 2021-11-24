@@ -2,10 +2,6 @@
     "name": "willim",
     "version": "1.0.0",
     "description": "WilliM Homepage",
-    "engines": {
-        "node": "10.14.1",
-        "npm": "6.4.1"
-    },
     "main": "server.js",
     "scripts": {
         "build": "next build",
