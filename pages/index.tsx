@@ -56,7 +56,7 @@ export default function Index() {
                     user-select: none;
                 }
                 .body {
-                    padding-bottom: 60px;
+                    padding: 0 1rem 60px 1rem;
                 }
                 .subtitle {
                     margin-top: 9rem;
